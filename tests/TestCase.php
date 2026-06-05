@@ -15,8 +15,8 @@ abstract class TestCase extends Orchestra
     {
         parent::setUp();
 
-        if ($this->getProvidedData() && method_exists(Model::class, 'preventAccessingMissingAttributes')) {
-            [$strict] = $this->getProvidedData();
+        if ($this->providedData() && method_exists(Model::class, 'preventAccessingMissingAttributes')) {
+            [$strict] = $this->providedData();
             Model::preventAccessingMissingAttributes($strict);
         }
 
